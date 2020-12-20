@@ -3,7 +3,7 @@ package day19
 import java.io.File
 
 fun main() {
-    val bufferedReader = File("resources/day19/inputFile2.txt").bufferedReader()
+    val bufferedReader = File("resources/day19/aoc-input.txt").bufferedReader()
     val rules = mutableListOf<String>()
     val words = mutableListOf<String>()
     do {
@@ -13,7 +13,7 @@ fun main() {
         val line = bufferedReader.readLine(); if (line != null) words.add(line)
     } while (line != null)
 
-    val ruleNodes = parseRules(rules.toList())
+    val ruleNodes = parseRulesDay2(rules.toList())
     fun RuleNode.calculateRegex(): String {
         if (parsedRegex == null) {
             if (rule.startsWith("\"")) {
@@ -49,7 +49,7 @@ fun main() {
     println(counter)
 }
 
-fun parseRules(inputRules: List<String>): List<RuleNode> {
+fun parseRulesDay2(inputRules: List<String>): List<RuleNode> {
     return inputRules.map {
         val firstSpaceIndex = it.indexOfFirst { char -> (char == ' ') }
         val ruleNumber = it.substring(0, firstSpaceIndex - 1).toInt()
@@ -66,11 +66,4 @@ fun parseRules(inputRules: List<String>): List<RuleNode> {
         }
         RuleNode(ruleNumber, rule)
     }.sortedBy { it.ruleNumber }
-}
-
-data class RuleNode(
-        val ruleNumber: Int,
-        var rule: String
-) {
-    var parsedRegex: String? = null
 }
