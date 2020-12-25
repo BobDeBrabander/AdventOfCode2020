@@ -14,8 +14,8 @@ fun main(){
 
     val bufferedReader = File("resources/day5/aoc-input.txt").bufferedReader()
     val seats = bufferedReader.readLines().map{it.calculateSeatId()}.toSet()
-    val min = seats.minOrNull()!!
-    val max = seats.maxOrNull()!!
+    val min = seats.min()!!
+    val max = seats.min()!!
     for (i in min..max) {
         if(!seats.contains(i)) println(i)
     }

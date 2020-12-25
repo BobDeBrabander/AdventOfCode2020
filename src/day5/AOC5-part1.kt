@@ -13,6 +13,6 @@ fun main(){
     }
 
     val bufferedReader = File("resources/day5/aoc-input.txt").bufferedReader()
-    val answer = bufferedReader.readLines().map{it.calculateSeatId()}.maxOrNull()
+    val answer = bufferedReader.readLines().map{it.calculateSeatId()}.max()
     println(answer)
 }
