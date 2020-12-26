@@ -12,8 +12,7 @@ fun main() {
     while (!indexesSeen.contains(index)){
         indexesSeen.add(index)
         val line = lines[index]
-        val instr = line.substringBefore(" ")
-        when (instr){
+        when (line.substringBefore(" ")){
             "nop" -> {
                 index++;
             }
